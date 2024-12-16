@@ -106,6 +106,9 @@
             <TabItem Header="Overview">
                 <pages:Overview />
             </TabItem>
+            <TabItem Header="Markup">
+                <pages:MarkupDemo />
+            </TabItem>
             <TabItem Header="Palette">
                 <pages:PaletteDemo />
             </TabItem>

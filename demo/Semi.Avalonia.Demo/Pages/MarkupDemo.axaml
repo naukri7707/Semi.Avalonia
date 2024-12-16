@@ -1,0 +1,67 @@
+﻿<UserControl
+    x:Class="Semi.Avalonia.Demo.Pages.MarkupDemo"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:semi="https://irihi.tech/semi"
+    xmlns:pages="clr-namespace:Semi.Avalonia.Demo.Pages"
+    mc:Ignorable="d">
+    <UserControl.DataContext>
+        <pages:MarkupDemoViewModel />
+    </UserControl.DataContext>
+    <ScrollViewer>
+        <StackPanel Name="demoContainer" HorizontalAlignment="Left" Spacing="20">
+            <StackPanel.Styles>
+                <Style Selector="SplitButton">
+                    <Setter Property="Flyout">
+                        <MenuFlyout Placement="BottomEdgeAlignedRight">
+                            <MenuItem Header="Submit All" />
+                            <MenuItem Header="Submit Updated" />
+                        </MenuFlyout>
+                    </Setter>
+                </Style>
+                <Style Selector="DropDownButton">
+                    <Setter Property="Flyout">
+                        <MenuFlyout Placement="BottomEdgeAlignedRight">
+                            <MenuItem Header="Submit All" />
+                            <MenuItem Header="Submit Updated" />
+                        </MenuFlyout>
+                    </Setter>
+                </Style>
+                <Style Selector="ToggleSplitButton">
+                    <Setter Property="Flyout">
+                        <MenuFlyout Placement="BottomEdgeAlignedRight">
+                            <MenuItem Header="Submit All" />
+                            <MenuItem Header="Submit Updated" />
+                        </MenuFlyout>
+                    </Setter>
+                </Style>
+            </StackPanel.Styles>
+
+            <TextBlock>Markups</TextBlock>
+            <StackPanel Orientation="Horizontal" Spacing="20">
+                <Button semi:ButtonStyle.Color="Primary">Primary</Button>
+                <DropDownButton semi:ButtonStyle.Color="Secondary" semi:ButtonStyle.Size="Large"
+                                semi:ButtonStyle.Variant="Outline">
+                    Tertiary
+                </DropDownButton>
+                <ToggleButton semi:ButtonStyle.Color="Tertiary" semi:ButtonStyle.Size="Large"
+                              semi:ButtonStyle.Variant="Outline">
+                    Tertiary
+                </ToggleButton>
+                <!-- Note: SplitButton and ToggleSplitButton are not included in this demo as they are not derived from Button. -->
+            </StackPanel>
+            <TextBlock>Markup Binding (Click to change style)</TextBlock>
+            <StackPanel Orientation="Horizontal" Spacing="20">
+                <Button
+                    Content="{Binding BindingText}"
+                    semi:ButtonStyle.Color="{Binding BtnColor}"
+                    semi:ButtonStyle.Size="{Binding BtnSize}"
+                    semi:ButtonStyle.Variant="{Binding BtnVariant}"
+                    Command="{Binding NextCommand}" />
+            </StackPanel>
+            <TextBlock>C# Markup &amp; Binding</TextBlock>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>
